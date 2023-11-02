@@ -1,18 +1,16 @@
 /// <reference types="Cypress" />
 import { faker } from "@faker-js/faker";
+import exampleJson from "../testData/testJsonFiles"
 
 //referencing the example.json file, that can be used for testing
-let exampleJson = require("../testData/testJsonFiles/example.json");
+let exampleJson = require("../testData/example.json");
 
 class GlobalVariables {
     routingNumber = faker.finance.routingNumber();
     bankAccountNumber = faker.finance.accountNumber(9);
 
-    firstName = faker.person.firstName();
-    lastName = faker.person.lastName();
-    username = faker.internet.userName({ firstName: this.firstName, lastName: this.lastName});
-    password = "Password1!";
-    bankName = "Bank" + Date.now();
+    username = Cypress.env("username");
+    password = Cypress.env("password");
 
     //generates a random image name, from any of the available ones stored in the testData folder
     imageName =
@@ -22,7 +20,7 @@ class GlobalVariables {
 
     //get random data from json file
     randomDataFromJson =
-    exampleJson[
+    exampleJson.locations[
       Math.floor(Math.random() * exampleJson.length) + 0
     ];
 }

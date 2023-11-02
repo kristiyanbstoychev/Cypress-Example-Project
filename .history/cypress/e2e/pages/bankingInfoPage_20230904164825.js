@@ -1,6 +1,8 @@
-import GlobalVariables from "../globalVariables"; 
+import GlobalVariables from "../globalVariables";
 
-class BankingInfoPage extends GlobalVariables {
+const globalVariables = new GlobalVariables(); 
+
+class BankingInfoPage {
   fillBankInfoAfterRegistration = "registration";
   fillBankInfoAtBankAccountsPage = "bankAccountsPage";
 
@@ -61,9 +63,9 @@ class BankingInfoPage extends GlobalVariables {
 
     this.bankNameInputField().type(Cypress.env("bankName"));
     this.bankAccountRautingNumberInputField().type(
-      this.routingNumber
+      globalVariables.routingNumber
     );
-    this.bankAccountNumberInputField().type(this.bankAccountNumber);
+    this.bankAccountNumberInputField().type(globalVariables.bankAccountNumber);
 
     this.saveBankInformationButton().click();
     

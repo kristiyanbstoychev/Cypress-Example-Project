@@ -34,8 +34,8 @@ class RegistrationPage extends GlobalVariables {
 
     this.checkRegistrationFormLayout();
 
-    this.firstNameInputField().type(this.firstName);
-    this.lastNameInputField().type(this.lastName);
+    this.firstNameInputField().type(Cypress.env("firstName"));
+    this.lastNameInputField().type(Cypress.env("lastName"));
     loginPage.userNameInputField().type(this.username);
     loginPage.passwordInputField().type(this.password);
     this.confirmPasswordInputField().type(this.password);
@@ -43,7 +43,7 @@ class RegistrationPage extends GlobalVariables {
 
     loginPage.userNameInputField().should('exist');
 
-    loginPage.login(this.username, this.password);
+    loginPage.login(Cypress.env("username"), Cypress.env("password"));
   }
 
   checkRegistrationFormLayout() {

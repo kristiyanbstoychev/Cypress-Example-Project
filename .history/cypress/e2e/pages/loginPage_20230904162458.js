@@ -1,6 +1,8 @@
 import GlobalVariables from "../globalVariables";
 
-class LoginPage extends GlobalVariables {
+const globalVariables = new GlobalVariables()
+
+class LoginPage {
   userNameInputField() {
     return cy.xpath('//input[@id="username"]');
   }
