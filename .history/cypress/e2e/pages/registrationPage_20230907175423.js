@@ -1,9 +1,8 @@
-import GlobalVariables from "../globalVariables";
 import LoginPage from "../pages/loginPage";
 
 const loginPage = new LoginPage();
 
-class RegistrationPage extends GlobalVariables {
+class RegistrationPage {
   createAccountLink() {
     return cy.get('[data-test="signup"]');
   }
@@ -32,32 +31,17 @@ class RegistrationPage extends GlobalVariables {
   createAnAccount() {
     this.createAccountLink().click();
 
-    this.checkRegistrationFormLayout();
-
-    this.firstNameInputField().type(this.firstName);
-    this.lastNameInputField().type(this.lastName);
-    loginPage.userNameInputField().type(this.username);
-    loginPage.passwordInputField().type(this.password);
-    this.confirmPasswordInputField().type(this.password);
+    this.firstNameInputField().type(Cypress.env("firstName"));
+    this.lastNameInputField().type(Cypress.env("lastName"));
+    loginPage.userNameInputField().type(Cypress.env("username"));
+    loginPage.passwordInputField().type(Cypress.env('password'));
+    this.confirmPasswordInputField().type(Cypress.env("password"));
     this.submitRegistrationFormButton().click();
 
     loginPage.userNameInputField().should('exist');
 
-    loginPage.login(this.username, this.password);
+    loginPage.login(Cypress.env("username"), Cypress.env("password"));
   }
-
-  checkRegistrationFormLayout() {
-    cy.matchImageSnapshot(
-      'Registration form',
-      {
-        capture: "viewport",
-        blackout: [
-          '[data-test="example-locator"]'
-        ]
-      }
-      );
-  }
-
 
 }
 export default RegistrationPage;

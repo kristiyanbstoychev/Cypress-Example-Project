@@ -43,7 +43,7 @@ class RegistrationPage extends GlobalVariables {
 
     loginPage.userNameInputField().should('exist');
 
-    loginPage.login(this.username, this.password);
+    loginPage.login(Cypress.env("username"), Cypress.env("password"));
   }
 
   checkRegistrationFormLayout() {

@@ -10,9 +10,9 @@ class GlobalVariables {
 
     firstName = faker.person.firstName();
     lastName = faker.person.lastName();
-    username = faker.internet.userName({ firstName: this.firstName, lastName: this.lastName});
+    username = faker.internet.userName({ firstName, lastName });
     password = "Password1!";
-    bankName = "Bank" + Date.now();
+    bankName = "Bank" + Date.now()
 
     //generates a random image name, from any of the available ones stored in the testData folder
     imageName =

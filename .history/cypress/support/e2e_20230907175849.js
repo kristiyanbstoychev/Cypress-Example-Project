@@ -22,17 +22,17 @@ addMatchImageSnapshotCommand();
 // can also add any default options to be used 
 // by all instances of `matchImageSnapshot`
 addMatchImageSnapshotCommand({
-  failureThresholdType: "percent",
-  capture: "viewport",
-  customDiffConfig: { threshold: 1 },
+  failureThreshold: 0.2
 })
 
 beforeEach(() => {
     cy.clearAllCookies();
     cy.visit("")
-    Cypress.on("uncaught:exception", (err, runnable) => {
-      return false;
-    });
+    cy.viewport(Cypress.env('deviceForTesting'));
+
+    if (Cypress.env('isMobile') == true) {
+        cy.log(Cypress.env("isMobile"));
+    }
 });
 
 // Alternatively you can use CommonJS syntax:

@@ -8,11 +8,12 @@ class GlobalVariables {
     routingNumber = faker.finance.routingNumber();
     bankAccountNumber = faker.finance.accountNumber(9);
 
-    firstName = faker.person.firstName();
-    lastName = faker.person.lastName();
-    username = faker.internet.userName({ firstName: this.firstName, lastName: this.lastName});
+    username = Cypress.env("username");
+    password = Cypress.env("password");
+    firstName = "Fname" + Date.now();
+    lastName = "Lname" + Date.now()
     password = "Password1!";
-    bankName = "Bank" + Date.now();
+    bankName = "Bank" + Date.now()
 
     //generates a random image name, from any of the available ones stored in the testData folder
     imageName =
