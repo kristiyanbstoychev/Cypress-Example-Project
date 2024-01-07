@@ -4,7 +4,7 @@ Example Cypress Automation Testing Project
 The tests are based on the Cypress Real World App - https://github.com/cypress-io/cypress-realworld-app
 
 ```
-git pull https://github.com/cypress-io/cypress-realworld-app.git
+git clone https://github.com/cypress-io/cypress-realworld-app.git
 ```
 
 before running the app run 
