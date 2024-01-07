@@ -9,7 +9,7 @@ git clone https://github.com/cypress-io/cypress-realworld-app.git
 
 before running the app run 
 ```
-yarn install
+npm install yarn@latest -g
 ```
 
 to run the app
